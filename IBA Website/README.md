@@ -28,6 +28,11 @@ All the stylesheets are done by myself aswell.
 <br>
 Here are a couple of screenshots that show how the website looks once it's up and running:
 ![Alt text](https://github.com/SimoxG7/personal-projects/blob/main/IBA%20Website/useful/exampleimage1.png "exampleimage1")
+<br>
 ![Alt text](https://github.com/SimoxG7/personal-projects/blob/main/IBA%20Website/useful/exampleimage2.png "exampleimage2")
+<br>
 ![Alt text](https://github.com/SimoxG7/personal-projects/blob/main/IBA%20Website/useful/exampleimage3.png "exampleimage3")
+<br>
 ![Alt text](https://github.com/SimoxG7/personal-projects/blob/main/IBA%20Website/useful/exampleimage4.png "exampleimage4")
+<br>
+![Alt text](https://github.com/SimoxG7/personal-projects/blob/main/IBA%20Website/useful/exampleimage5.png "exampleimage5")
