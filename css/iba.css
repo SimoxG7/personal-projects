@@ -1,0 +1,572 @@
+body {
+    background-color: black;
+    color: white;
+    padding-top: 71px;
+    margin-bottom: 5000px;
+}
+
+main,
+html,
+nav {
+    background-color: black;
+    color: white;
+}
+
+.form-control::placeholder {
+    color: red;
+    opacity: 1;
+}
+
+.intro {
+    /* old ".video" */
+    width: 100%;
+    overflow: hidden;
+    display: block;
+    max-height: 46vh;
+    /*box-shadow: 0 0 5px 10px black;*/
+}
+
+@media screen and (max-width: 900px) {
+    .intro {
+        display: none;
+    }
+}
+
+.background-image {
+    width: 100%;
+    position: relative;
+    opacity: 0.5;
+}
+
+.background-image-faded {
+    width: 100%;
+    position: relative;
+    opacity: 0.5;
+}
+
+.background-tint {
+    opacity: 0.7;
+    position: absolute;
+    height: fit-content;
+    overflow: hidden;
+}
+
+.logo {
+    position: absolute;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: auto;
+    width: 30%;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.wrapper {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+/*
+.wrapper {
+    position: relative;
+    width: 400px;
+    height: 400px;
+}
+
+.overlay {
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    bottom: 0;
+    width: 400px;
+}
+
+.background {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+
+.about-us {
+    color: white;
+}
+
+/* Container holding the image and the text */
+.text-container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+/* Bottom left text */
+.bottom-left {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+}
+
+/* Top left text */
+.top-left {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+}
+
+/* Top right text */
+.top-right {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+}
+
+/* Bottom right text */
+.bottom-right {
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+}
+
+/* Centered text */
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.bigtext {
+    font-size: 70px;
+    font-family: 'Montserrat', Helvetica, Arial, Lucida, sans-serif;
+}
+
+.normaltext {
+    font-size: 25px;
+    font-family: 'Open Sans', Helvetica, Arial, Lucida, sans-serif;
+}
+
+@media screen and (max-width: 1200px) {
+    .bigtext {
+        font-size: 50px;
+    }
+
+    .normaltext {
+        font-size: 20px;
+    }
+
+    .mybuttons {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .bigtext {
+        font-size: 40px;
+    }
+
+    .normaltext {
+        font-size: 15px;
+    }
+
+    .mybuttons {
+        font-size: 15px;
+    }
+}
+
+/* fonts:
+    font-family: 'Montserrat', Helvetica, Arial, Lucida, sans-serif;
+    font-family: 'Open Sans', Helvetica, Arial, Lucida, sans-serif;
+*/
+
+@media screen and (max-width: 600px) {
+    .bigtext {
+        font-size: 25px;
+    }
+
+    .normaltext {
+        font-size: 11px;
+    }
+
+    .mybuttons {
+        font-size: 11px;
+    }
+
+}
+
+.mybuttons {
+    padding-top: 230px;
+    background-color: black;
+    border: white;
+    border-radius: 1px;
+    border-style: inset;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    position: relative;
+    margin: 15px;
+}
+
+.box {
+    width: 70%;
+    border: 2px solid red;
+    padding: 5%;
+    margin: 15%;
+}
+
+#cocktailrightside {
+    width: 25vw;
+    margin-right: 0px;
+    position: absolute;    
+    top: 25%;
+    right: 5%;
+}
+
+/*
+@media screen and (max-width: 1000px) {
+    #cocktailrightside {
+        width: 200px;
+    }
+}
+*/
+
+.exampleimage {
+    width: auto;
+}
+
+@media screen and (max-width: 870px) {
+    .exampleimage {
+        width: 38%;
+        height: 38%;
+    }
+}
+
+.imageholder {
+    width: 80%;
+    background-color: white;
+    padding: 5%;
+    margin: 10%;
+    margin-top: 10px;
+}
+
+.sponsorimage {
+    margin: 1%;
+    width: 200px;
+    height: auto;
+}
+
+.verticalline1 {
+    border-left: 2px solid red;
+    width: 0px;
+    right: 50%;
+    height: 115%;
+    position: absolute;
+    top: 0;
+}
+
+#wcc {
+    width: 20vw;
+    float: left;
+    position: absolute;    
+    top: 25%;
+    left: 10%;
+    max-width: 480px; 
+    margin-top: -35px;
+}
+
+#lowerlogo {
+    max-height: 200px;
+    max-width: 200px; 
+    float: left;
+}
+
+@media screen and (max-width: 700px) {
+    #lowerlogo {
+        max-height: 100px;
+        max-width: 100px; 
+    }
+}
+
+.footer {
+    text-align: center;
+    background-color: white;
+    color: red;
+    position: absolute;
+    margin-bottom: 4px;
+    width: 100%;
+}
+
+#ageverificationpopup {
+    display: none;
+    background-color: white;
+    text-align: center;
+    max-width: 600px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    z-index: 9;
+    padding: 5%;
+}
+
+#buttonleft {
+    width: 39%;
+    position: absolute;
+    left: 10%;
+    background-color: red;
+    border-radius: 4px;
+    border-style: none;
+    color: white;
+    height: 5%;
+}
+
+#buttonright {
+    width: 39%;
+    position: absolute;
+    right: 10%;
+    background-color: rgb(94, 94, 94);
+    border-radius: 4px;
+    border-style: none;
+    color: white;
+    height: 5%;
+}
+
+#boxaboutiba {
+    background-color: black; 
+    border-color: black; 
+    position: relative; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    margin-top: 20vh;
+    width: 90%;
+    padding: 5%;
+}
+
+#presidentimg {
+    width: 20vw;
+    float: left;
+    position: absolute;    
+    top: 40%;
+    left: 5%;
+    max-width: 480px; 
+    margin-top: -35px;
+}
+
+#hugetitle {
+    font-size: 70px; 
+    text-align: left; 
+    margin-left: 23%;
+}
+
+@media screen and (max-width: 800px) {
+    #hugetitle {
+        font-size: 40px;
+    }
+}
+
+#cocktailinfoimageholder {
+    width: 50%;
+}
+
+#cocktailinfoimage {
+    float: left;
+    width: 49vw;
+    position: relative; 
+    -webkit-box-shadow: inset 0 0 10px 10px #000;    
+    -moz-box-shadow: inset 0 0 10px 10px #000;
+    box-shadow: inset 0 0 10px 10px #000;
+    max-height: fit-content;
+    overflow: hidden;
+}
+
+#cocktailinfodetails {
+    position: absolute;
+    float: right;
+    margin-left: 52%;
+    width: 44%;
+    background-color: black;
+    margin-top: 10vh;
+}
+
+/*
+@media screen and (max-width: 1200px) {
+    #cocktailinfoimageholder {
+        width: 100%;
+        float: none;
+    }
+
+    #cocktailinfoimage {
+        float: left;
+        width: 99vw;
+        max-height: 50vh;
+        position: relative; 
+        -webkit-box-shadow: inset 0 0 10px 10px #000;    
+        -moz-box-shadow: inset 0 0 10px 10px #000;
+        box-shadow: inset 0 0 10px 10px #000;
+    }
+
+    #cocktailinfodetails {
+        position: absolute;
+        width: 100%;
+        background-color: black;
+        margin-top: 53vh;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-bottom: 10%;
+    }
+}
+*/
+
+.cbigtext {
+    font-size: 35px;
+    font-family: 'Montserrat', Helvetica, Arial, Lucida, sans-serif;
+    text-decoration-line: underline;
+    font-weight: 700;
+}
+
+.cnormaltext {
+    font-size: 20px;
+    font-family: 'Montserrat', Helvetica, Arial, Lucida, sans-serif;
+}
+
+@media screen and (max-width: 1200px) {
+    .cbigtext {
+        font-size: 30px;
+    }
+
+    .cnormaltext {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .cbigtext {
+        font-size: 25px;
+    }
+
+    .cnormaltext {
+        font-size: 10px;
+    }
+}
+
+/*
+.squarecocktailpreview {
+    position: relative;
+    height: 200px;
+    width: 200px;
+}
+*/
+
+.insidegridimage {
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    overflow: hidden;
+    object-fit: cover; /*remove this if you don't want glasses to be cut*/
+}
+
+.grid-container {
+    display: grid;
+    /*
+    grid-template-columns: minmax(200px, 200px) minmax(200px, 200px) minmax(200px, 200px) minmax(200px, 200px) minmax(200px, 200px) minmax(200px, 200px) minmax(200px, 200px) minmax(200px, 200px);
+    grid-auto-rows: 300px;
+    grid-template-columns: repeat(3, 1fr);
+    */
+    grid-template-columns: repeat(6, 200px);
+    background-color: black;
+    gap: 42px;
+    grid-auto-flow: dense;
+    position: relative;
+    place-items: center;
+}
+
+@media screen and (max-width: 1800px) {
+    .grid-container {
+        grid-template-columns: repeat(5, 200px);
+    }
+}
+
+@media screen and (max-width: 1450px) {
+    .grid-container {
+        grid-template-columns: repeat(4, 200px);
+    }
+}
+
+@media screen and (max-width: 1175px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 200px);
+    }
+}
+
+@media screen and (max-width: 875px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 200px);
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .grid-container {
+        margin-left: 16%;
+        grid-template-columns: 200px;
+    }
+}
+
+.grid-item {
+    justify-content: center;
+    align-items: center;
+    /*
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    */
+    padding: 20px;
+    position: relative;
+    height: 250px;
+    width: 200px;
+}
+
+.customlink {
+    color: white;
+    text-decoration: none;
+}
+
+.customlink:hover {
+    color: red;
+}
+
+.textunderpreview {
+    width: 200px; 
+    height: 50px; 
+    color: white; 
+    background-color: red; 
+    margin-top: 200px; 
+    text-align: center; 
+    font-size: 16px; 
+    padding: 12px; 
+    font-family: 'Montserrat', Helvetica, Arial, Lucida, sans-serif;
+    overflow: hidden;
+    font-weight: 700;
+}
+
+#cocktailshadeimage {
+    width: 50%; 
+    top: 0; 
+    left: 0; 
+    position: absolute;
+    z-index: 8;
+}
+
+
+
+
+
+
+

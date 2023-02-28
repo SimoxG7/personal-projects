@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>International Bartender Association</title>
+
+    <script src="./js/iba.js"></script>
+    <link rel="stylesheet" href="./css/iba.css">
+
+    <!-- bootstrap's script and stylesheet -->
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="./img/favicon.ico?v=1.1">
+
+    <!-- age verification -->
+    <script src="./js/ageverification.js"></script>
+
+    <!-- captcha generator -->
+    <script src="./js/mycaptcha.js"></script>
+
+    <!-- form scripts -->
+    <script src="./js/forms.js"></script>
+
+</head>
+
+<body>
+
+    <header>
+        <div>
+            <nav class="navbar navbar-expand-md navbar-expand-sm navbar-dark fixed-top bg-dark">
+                <div class="container-fluid">
+                    <a href="./iba.html" style="text-decoration: none">
+                        <img src="./img/logo-iba.png" alt="logo" style="width: 55px; height: 55px;">
+                    </a>
+                    
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="./iba">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="./aboutiba">About IBA</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./cocktailsinfo">Cocktails</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="./academy">Academy</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="./supporters">Supporters</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./aboutme">About Me & The Project</a>
+                            </li>
+                        </ul>
+                        <img src="./img/red-box.png" alt="redbox" style="float: right; width: 55px; height: 55px;">
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Age verification -->
+
+    <script>
+        firsttimevisitingvalue = localStorage.getItem("firsttimevisiting");
+        if (firsttimevisitingvalue == null || firsttimevisitingvalue == "true") {
+            console.log("firsttimevisiting. Creating the ageverificationpopup.");
+            displayAgeVerification();
+            disableScroll();
+            blurBackground();
+        } 
+    </script>
+
+    <!--  USED FOR TESTING THE AGE VERIFICATION SCRIPT 
+    <script>document.addEventListener("DOMContentLoaded", localStorage.setItem("firsttimevisiting", true));</script>
+    -->
+
+    <div id="ageverificationpopup" style="text-align: center;">
+        <img src="./img/logo-iba.png" alt="logoiba" style="max-width: 100%;">
+        <p style="color: black; font-size: 30px;">Welcome to IBA</p>
+        <hr style="color: black; height: 2px;">
+        <p style="color: rgb(94, 94, 94); font-size: 15px;">Are you of legal age for drinking?</p>
+        <button id="buttonleft" onclick="window.location.reload(); changefirsttimevisitingvalue();">YES</button>
+        <button id="buttonright" onclick="window.location.href='./comeback.html'">NO</button>
+    </div>
+
+    <main id="main">
+        <!-- intro video -->
+
+        <div class="intro">
+            <video id="video-specific" loop="loop" autoplay playsinline muted width="100%">
+                <source type="video/mp4" src="./img/Sequenza-01_1.mp4" />
+            </video>
+        </div>
+
+        <!-- About the IBA -->
+
+        <div class="wrapper">
+            <img class="background-image-faded" src="./img/cover-test2-faded.jpg">
+            <img class="logo" src="./img/red-box.png" alt="red-logo-iba">
+        </div>
+
+        <div>
+            <div class="wrapper">
+                <img class="background-image" src="./img/bar-24-faded.jpg">
+                <div class="text-container centered" style="top: 50%;">
+                    <div class="bigtext">
+                        About the IBA
+                    </div>
+                    <img src="./img/IBA-COUNCIL-2019-980x302.jpg" style="max-width: 100%;" alt="iba-council">
+                    <div class="normaltext" style="margin-top: 5px;">
+                        The International Bartenders Association was founded on Saturday, 24th February 1951 in the
+                        Saloon of the Grand Hotel in Torquay, United Kingdom. Still today this event is celebrated all
+                        over the world as the International Bartenders’ Day. <br>
+                        The Association’s main aims are to promote and maintain International Relations among the Guild
+                        Members and to encourage a high standard of competence and conduct for the benefit and
+                        advancement of the profession of Bartending.
+                    </div>
+                    <button class="mybuttons" onclick="window.location.href='./aboutiba.html'">Read more</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- hr divider -->
+
+        <!-- 
+        <hr style="color: red; margin: 15px; height: 2px; opacity: 0.9;">
+        -->
+        <!-- IBA Official Cocktail List -->
+
+        <div class="wrapper">
+
+            <div class="text-container box" style="overflow: hidden;">
+                <div class="bigtext" style="text-align: left;">
+                    IBA Official Cocktail List
+                </div>
+                <div class="normaltext" style="margin-top: 5px; text-align: left; margin-right: 20%;">
+                    The official IBA Cocktail List recognizes the most requested recipes, used over the years by
+                    bartenders servicing the most important bars all over the world. This list has led to a grand
+                    evolution in the world of mixed drinks.
+                </div>
+
+                <!-- 
+                <form class="d-flex" style="margin-top: 20px; margin-bottom: 20px;margin-right: 20%;">
+                    <input class="form-control me-2" type="search"
+                        placeholder="Search cocktail in the official cocktail list" aria-label="Search">
+                    <button color="white" background-color="black" class="btn  btn-outline-light" type="submit"
+                        btn-primary>Search</button>
+                </form>
+                -->
+
+                <button class="mybuttons" onclick="window.location.href='./cocktail'" style="float: left;">Read
+                    more</button>
+
+            </div>
+            <img id="cocktailrightside" src="./img/IBA-TU-20-Negroni.png" alt="example cocktail">
+        </div>
+
+
+        <!-- rimuovere centered dai div e aggiungere absolute? -->
+
+        <!-- IBA Academy -->
+
+        <div>
+            <div class="wrapper">
+                <img class="background-image" src="./img/academy-cover-faded.jpg">
+                <div class="text-container centered">
+                    <div class="bigtext" style="text-align: left;">
+                        IBA Academy
+                    </div>
+                    <div class="normaltext" style="margin-top: 5px; text-align: left">
+                        Welcome to the next generation of the IBA Academy. We know how important it is to the best you
+                        can be.
+                        <br>
+                        To combat the continued growth of the bar industry and the never ending need for a well equipped
+                        and talented bartenders.
+                        <br>
+                        The <b>IBA</b> has created an <b>Academy to raise the bartenders knowledge</b> and to prepare
+                        both the new and established bartenders and prepare them for all aspects of the bar industry.
+                    </div>
+                    <button class="mybuttons" onclick="window.location.href='./academy.html'"
+                        style="float: left; margin-top: 30px;">Read more</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- IBA World Cocktail Championship 2022 -->
+
+        <div class="wrapper">
+            <div class="text-container box" style="overflow: hidden;">
+                <p id="hugetitle">WCC2022</p>
+                <div class="normaltext" style="margin-top: 10px; text-align: left; float: right; margin-left: 23%;">
+
+                    The <b>IBA World Cocktail Championship 2022</b> is set to be the biggest reunion of the World’s
+                    greatest Cocktail and Flair Bartenders!
+                    <br>
+                    Incorporating all <b>64 countries of the IBA</b>, The WCC will be a battle of the best. Cocktails
+                    will be flowing and the skill & entertainment will be absolutely Incredible!
+                    <br><br>
+                    Our hosting country will be the <b>Beautiful Cuba</b> in the vibrant area of Varadero, led by the
+                    incredible <b>Asociación de Cantineros de Cuba</b>.
+                    <br>
+                    National level Cocktail and Flair Competitions will be held in each of our 64 IBA countries in the
+                    search for the next IBA World Cocktail Champion.
+                    <br><br>
+                    Get your Shakers out and start training in your routines for this Major Global Cocktail
+                    Championship. Now is your time to shine on the world stage, See you in Cuba 2022!
+                </div>
+            </div>
+            <img id="wcc" src="./img/WCC-2022-LOGO8sm.jpg">
+        </div>
+
+        <!-- Sponsors -->
+
+        <div class="wrapper">
+            <div class="text-container" style="overflow: hidden;">
+                <div class="bigtext" style="text-align: center;">
+                    IBA's Supporters
+                </div>
+                <div class="imageholder">
+                    <a href="https://barmatic.ch/" style="text-decoration: none">
+                        <img class="sponsorimage" src="./img/sponsors/Barmatic2021.jpg" alt="Barmatic2021">
+                    </a>
+                    <a href="https://www.campari.com/" style="text-decoration: none">
+                        <img class="sponsorimage" src="./img/sponsors/CAMPARI.jpg" alt="Campari">
+                    </a>
+                    <a href="https://www.cmykingredients.com/" style="text-decoration: none">
+                        <img class="sponsorimage" src="./img/sponsors/CMYK2021.jpg" alt="cmyk ingredients">
+                    </a>
+                    <a href="https://en.fabbri1905.com/" style="text-decoration: none">
+                        <img class="sponsorimage" src="./img/sponsors/Fabbri2021.jpg" alt="Fabbri">
+                    </a>
+                    <a href="https://havana-club.com/en/" style="text-decoration: none">
+                        <img class="sponsorimage" src="./img/sponsors/Havana-Club.jpg" alt="Havana Club">
+                    </a>
+                    <a href="https://www.luxardo.it/" style="text-decoration: none">
+                        <img class="sponsorimage" src="./img/sponsors/Luxardo.jpg" alt="Luxardo">
+                    </a>
+                    <a href="https://www.mattoni.cz/" style="text-decoration: none">
+                        <img class="sponsorimage" src="./img/sponsors/MATTONI2021.jpg" alt="Mattoni">
+                    </a>
+                    <a href="https://www.monin.com/emea/" style="text-decoration: none">
+                        <img class="sponsorimage" src="./img/sponsors/MONIN.jpg" alt="Monin">
+                    </a>
+                    <a href="https://www.montenegro.it/" style="text-decoration: none">
+                        <img class="sponsorimage" src="./img/sponsors/Montenegro.jpg" alt="Montenegro">
+                    </a>
+                    <a href="https://www.grappanonino.it/en/" style="text-decoration: none">
+                        <img class="sponsorimage" src="./img/sponsors/Nonino.jpg" alt="Nonino">
+                    </a>
+                    <a href="https://www.prosecco.wine/en" style="text-decoration: none">
+                        <img class="sponsorimage" src="./img/sponsors/PROSECCO.jpg" alt="Prosecco">
+                    </a>
+                    <a href="https://www.rcrcrystal.com/en/mixology/" style="text-decoration: none">
+                        <img class="sponsorimage" src="./img/sponsors/RCR.jpg" alt="RCR">
+                    </a>
+                    <a href="https://www.scotsman-ice.com/" style="text-decoration: none">
+                        <img class="sponsorimage" src="./img/sponsors/Scotsman.jpg" alt="Scotsman">
+                    </a>
+                    <a href="https://www.spiritshunters.com/it/" style="text-decoration: none">
+                        <img class="sponsorimage" src="./img/sponsors/Spirit-Hunters.jpg" alt="Spirit Hunters">
+                    </a>
+                    <a href="https://www.beamsuntory.com/en" style="text-decoration: none">
+                        <img class="sponsorimage" src="./img/sponsors/SUNTORY.jpg" alt="Suntory">
+                    </a>
+
+                    <!-- 
+
+                    <img class="sponsorimage" src="./img/sponsors/Barmatic2021.jpg">
+                    <img class="sponsorimage" src="./img/sponsors/CAMPARI.jpg">
+                    <img class="sponsorimage" src="./img/sponsors/CMYK2021.jpg">
+                    <img class="sponsorimage" src="./img/sponsors/Fabbri2021.jpg">
+                    <img class="sponsorimage" src="./img/sponsors/Havana-Club.jpg">
+                    <img class="sponsorimage" src="./img/sponsors/Luxardo.jpg">
+                    <img class="sponsorimage" src="./img/sponsors/MATTONI2021.jpg">
+                    <img class="sponsorimage" src="./img/sponsors/MONIN.jpg">
+                    <img class="sponsorimage" src="./img/sponsors/Montenegro.jpg">
+                    <img class="sponsorimage" src="./img/sponsors/Nonino.jpg">
+                    <img class="sponsorimage" src="./img/sponsors/PROSECCO.jpg">
+                    <img class="sponsorimage" src="./img/sponsors/RCR.jpg">
+                    <img class="sponsorimage" src="./img/sponsors/Scotsman.jpg">
+                    <img class="sponsorimage" src="./img/sponsors/Spirit-Hunters.jpg">
+                    <img class="sponsorimage" src="./img/sponsors/SUNTORY.jpg">
+
+                    -->
+
+                </div>
+            </div>
+        </div>
+
+        <!-- IBA Informations and feedback form -->
+
+        <div class="wrapper">
+            <div style="position: absolute; margin: 5%; padding: 0px; margin-top: 0px; top: 0; left: 0; width: 90%;">
+
+                <!-- info & logo -->
+                <div style="font-family: 'Open Sans',Helvetica,Arial,Lucida,sans-serif; margin-bottom: 200px;">
+                    <img src="./img/logo-iba.png" alt="logo" id="lowerlogo">
+                </div>
+                <div class="normaltext"
+                    style="margin-top: 200px; font-family: 'Open Sans',Helvetica,Arial,Lucida,sans-serif; width: 50%;">
+                    <b>IBA</b>
+                    <br><br>
+                    Registered address:
+                    <br><br>
+                    138 Cecil Street, #06-01 Cecil Court, 069538 Singapore
+                    <br><br>
+                    Registered No. T06SS0054C
+                </div>
+
+                <!-- vertical divider -->
+                <div class="verticalline1"></div>
+
+                <!-- form -->
+                <div
+                    style="position: absolute; top: 0; left: 55%; margin-top: 2%; width: 45%; display: inline-block !important;">
+                    <div class="normaltext">
+                        Send me your feedback!
+                    </div>
+                    <br>
+                    <!-- TODO: FIX THIS SO THAT IT ACTUALLY WORKS, MAYBE APPEND MESSAGE IN A LOG FILE ON SERVER-SIDE MACHINE? -->
+
+                    <!--
+                    <form onsubmit="formfeedback(); return false;" name="feedback" enctype="text/plain" method="post"
+                        style="margin-top: 50px;">
+                        <p class="normaltext">
+                            <input class="form-control me-2" type="text" name="name" placeholder="Name">
+                        </p>
+                        <p class="normaltext">
+                            <input class="form-control me-2" type="text" name="mail" placeholder="Mail">
+                        </p>
+                        <p class="normaltext">
+                            <textarea class="form-control me-2" rows="5" name="message"
+                                placeholder="Message" autocomplete="off"></textarea>
+                        </p>
+                        <p class="normaltext">
+                        <p>Are you a robot? Type the result of the addition: </p>
+                        <p id="captchanumbers"></p>
+                        <!-- document.getElementById("captchanumbers").innerHTML = "numerigenerati";
+                            -->
+                    <!--
+                        <input class="form-control me-2" type="text" name="captcharesponse" placeholder="Result"
+                            width="30%" autocomplete="off">
+                        </p>
+                        <p class="normaltext">
+                            <button color="white" background-color="black" class="btn  btn-outline-light" type="submit" btn-primary>Submit</button>
+                        </p>
+                    </form>
+                    -->
+                    <p class="normaltext">
+                        <input class="form-control me-2" type="text" name="name" placeholder="Name" id="formfeedbackname" autocomplete="off">
+                    </p>
+                    <p class="normaltext">
+                        <input class="form-control me-2" type="text" name="mail" placeholder="Mail" id="formfeedbackmail" autocomplete="off">
+                    </p>
+                    <p class="normaltext">
+                        <textarea class="form-control me-2" rows="5" name="message" placeholder="Message"
+                            autocomplete="off" id="formfeedbackmessage"></textarea>
+                    </p>
+                    <p class="normaltext">
+                    <p>Are you a robot? Type the result of the addition: </p>
+                    <p id="captchanumbers"></p>
+                    <input class="form-control me-2" type="text" name="captcharesponse" placeholder="Result" width="30%"
+                        autocomplete="off" id="formfeedbackcaptcharesponse">
+                    </p>
+                    <p class="normaltext">
+                        <button color="white" background-color="black" class="btn  btn-outline-light" type="submit"
+                            btn-primary onclick="formfeedback()">Submit</button>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer"
+        style="font-size: 11px; font-family: 'Open Sans', Helvetica, Arial, Lucida, sans-serif; margin-top: 600px;">
+        <b>No copyright infringement intended, this is a project created for academic purposes.
+            <br>
+            Created by Simone Gioè for the Web Languages and Technologies course from the University of studies of
+            Milan.</b>
+    </footer>
+
+    <script>
+        addCaptchaToText();
+    </script>
+</body>
+
+</html>

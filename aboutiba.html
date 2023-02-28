@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>International Bartender Association</title>
+
+    <script src="./js/iba.js"></script>
+    <link rel="stylesheet" href="./css/iba.css">
+
+    <!-- bootstrap's script and stylesheet -->
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="./img/favicon.ico?v=1.1">
+
+    <!-- captcha generator -->
+    <script src="./js/mycaptcha.js"></script>
+
+    <!-- form scripts -->
+    <script src="./js/forms.js"></script>
+
+    <!-- age verification -->
+    <script src="./js/ageverification.js"></script>
+
+</head>
+
+
+<body>
+
+    <header>
+        <div>
+            <nav class="navbar navbar-expand-md navbar-expand-sm navbar-dark fixed-top bg-dark">
+                <div class="container-fluid">
+                    <a href="./iba.html" style="text-decoration: none">
+                        <img src="./img/logo-iba.png" alt="logo" style="width: 55px; height: 55px;">
+                    </a>
+                    <!--
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    -->
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="./iba">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="./aboutiba">About IBA</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./cocktailsinfo">Cocktails</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="./academy">Academy</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="./supporters">Supporters</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./aboutme">About Me & The Project</a>
+                            </li>
+                        </ul>
+
+                        <img src="./img/red-box.png" alt="redbox" style="float: right; width: 55px; height: 55px;">
+
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Age verification -->
+
+    <script>
+        firsttimevisitingvalue = localStorage.getItem("firsttimevisiting");
+        console.log()
+        if (firsttimevisitingvalue == null || firsttimevisitingvalue == "true") {
+            console.log("firsttimevisiting. Creating the ageverificationpopup.");
+            displayAgeVerification();
+            disableScroll();
+            blurBackground();
+        } 
+    </script>
+
+    <div id="ageverificationpopup" style="text-align: center;">
+        <img src="./img/logo-iba.png" alt="logoiba" style="max-width: 100%;">
+        <p style="color: black; font-size: 30px;">Welcome to IBA</p>
+        <hr style="color: black; height: 2px;">
+        <p style="color: rgb(94, 94, 94); font-size: 15px;">Are you of legal age for drinking?</p>
+        <button id="buttonleft" onclick="window.location.reload(); changefirsttimevisitingvalue();">YES</button>
+        <button id="buttonright" onclick="window.location.href='./comeback.html'">NO</button>
+    </div>
+
+    <main id="main">
+
+        <!-- About the IBA -->
+
+        <div>
+            <img src="./img/bartender-sprinkling-bitter-elegant-cocktail-glass-1300-faded-top.jpg" alt="bgimg"
+                style="height: 50vh; width: 100%; overflow: hidden; display: inline; object-fit: cover;">
+        </div>
+
+        <div id="boxaboutiba">
+            <p class="bigtext">
+                About IBA
+            </p>
+            <p class="normaltext">
+                In 1951, the International Bartenders Association was established in Torquay, UK on the 24 February by 7
+                founding members (guilds), Denmark, France, Italy, Netherlands, Sweden, Switzerland and the United
+                Kingdom. The first President was Mr Bill Tarling from UKBG, followed George Baker the next year, then by
+                George Sieve of Switzerland, Pietro Grandi of Italy, and Kurt Sorensen of Denmark.
+                <br><br>
+                From 1963 to 1976 (14 years) the presidency was in Italy held by Mr Angelo Zola. Angelo Zola was also
+                one of the founding members at the round table meeting for the inception of the IBA.
+                <br><br>
+                The IBA flourished and by 1976 it had recruited 23 new members, making the IBA with a membership of 30
+                countries. To-date the IBA membership stands at 64 with 3 observing countries.
+                <br><br>
+            </p>
+            <img src="./img/IBA-1951-980x658.jpg" alt="iba1951" style="max-width: 48%; float: left;">
+            <img src="./img/about-us-photo-02-980x680.jpg" alt="aboutuspic2" style="max-width: 48%; float: right;">
+        </div>
+
+
+        <!-- message from president -->
+
+        <div class="wrapper" style="position: relative;">
+            <img class="background-image" src="./img/2019-Chengdu-Gala-Dinner.jpg" alt="galadinnerbg">
+            <div class="text-container">
+                <p class="normaltext"
+                    style="margin-top: -65%; text-align: left; float: right;  margin-left: 20%; margin-right: 5%; background-color: black; padding: 4%; width: 70%;">
+                    <b>Message from the President</b>
+                    <br><br>
+                    The International Bartenders’ Association is the crossroad of exchange between new and old
+                    generations of professionals, it is the meeting point of all professional optics. It is the splendid
+                    gym where competition is exercised in view of a single common goal: our professional identity.
+                    <br><br>
+                    I would not want to fall into the obvious, but here is where our asociative “spirit” emerges: robust
+                    in its professional solidity, and full-bodied for everyone who takes part in it, every year, with
+                    new and consolidated experiences.
+                    <br><br>
+                    The commitment, and devotion that is given by our 64 member countries, underline how important and
+                    strong our association is.
+                    <br><br>
+                    A special recognition to our Partners, that despise the current socio-economic situation continue
+                    supporting our causes and working for the benefit of the world’s bartending community.
+                </p>
+            </div>
+            <img id="presidentimg" src="./img/image_6487327-980x948.jpg">
+        </div>
+
+
+        <!-- mission, vision, values... -->
+
+
+        <div class="wrapper">
+            <div class="text-container box">
+                <div class="boxaboutiba" style="margin-top: 10px; text-align: left;">
+
+                    <p class="bigtext">
+                        Our Mission
+                    </p>
+                    <p class="normaltext">
+                        To connect, educate and inspire bartenders of the world.
+                    </p>
+                    <br><br>
+                    <p class="bigtext">
+                        Our Vision
+                    </p>
+                    <p class="normaltext">
+                        To keep raising the standards and knowledge of bartenders’ internationally.
+                    </p>
+                    <br><br>
+                    <p class="bigtext">
+                        Our Core Values
+                    </p>
+                    <p class="normaltext">
+                        Passion - Unity - Legacy
+                    </p>
+                    <br><br>
+                    <p class="bigtext">
+                        What We Are
+                    </p>
+                    <p class="normaltext">
+                        The IBA is a community of bartender associations engaging in sharing knowledge and innovations.
+                        We give our community equal opportunities for personal and career advancement. The IBA is a
+                        global non-profit organization of passionate individuals who cherish the traditions and heritage
+                        of our trade.
+                    </p>
+                    <br><br>
+                    <p class="bigtext">
+                        What We Do
+                    </p>
+                    <p class="normaltext">
+                        The IBA connects the beverage industry professionals together. We raise the high standards of
+                        service and bartending skills through our partnerships, Academy, resources and international
+                        competitions. These activities bring our diverse family of national associations together.
+                    </p>
+                    <br><br>
+                    <button class="mybuttons centered" type="submit"
+                        onclick="window.open('Constitution-CTC.pdf')">Download constitution</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sponsors -->
+
+        <div class="wrapper">
+            <div class="text-container" style="overflow: hidden; margin-top: 50px;">
+                <div class="bigtext" style="text-align: center;">
+                    IBA's Supporters
+                </div>
+                <div class="imageholder">
+                    <a href="https://barmatic.ch/" style="text-decoration: none">
+                        <img class="sponsorimage" src="./img/sponsors/Barmatic2021.jpg" alt="Barmatic2021">
+                    </a>
+                    <a href="https://www.campari.com/" style="text-decoration: none">
+                        <img class="sponsorimage" src="./img/sponsors/CAMPARI.jpg" alt="Campari">
+                    </a>
+                    <a href="https://www.cmykingredients.com/" style="text-decoration: none">
+                        <img class="sponsorimage" src="./img/sponsors/CMYK2021.jpg" alt="cmyk ingredients">
+                    </a>
+                    <a href="https://en.fabbri1905.com/" style="text-decoration: none">
+                        <img class="sponsorimage" src="./img/sponsors/Fabbri2021.jpg" alt="Fabbri">
+                    </a>
+                    <a href="https://havana-club.com/en/" style="text-decoration: none">
+                        <img class="sponsorimage" src="./img/sponsors/Havana-Club.jpg" alt="Havana Club">
+                    </a>
+                    <a href="https://www.luxardo.it/" style="text-decoration: none">
+                        <img class="sponsorimage" src="./img/sponsors/Luxardo.jpg" alt="Luxardo">
+                    </a>
+                    <a href="https://www.mattoni.cz/" style="text-decoration: none">
+                        <img class="sponsorimage" src="./img/sponsors/MATTONI2021.jpg" alt="Mattoni">
+                    </a>
+                    <a href="https://www.monin.com/emea/" style="text-decoration: none">
+                        <img class="sponsorimage" src="./img/sponsors/MONIN.jpg" alt="Monin">
+                    </a>
+                    <a href="https://www.montenegro.it/" style="text-decoration: none">
+                        <img class="sponsorimage" src="./img/sponsors/Montenegro.jpg" alt="Montenegro">
+                    </a>
+                    <a href="https://www.grappanonino.it/en/" style="text-decoration: none">
+                        <img class="sponsorimage" src="./img/sponsors/Nonino.jpg" alt="Nonino">
+                    </a>
+                    <a href="https://www.prosecco.wine/en" style="text-decoration: none">
+                        <img class="sponsorimage" src="./img/sponsors/PROSECCO.jpg" alt="Prosecco">
+                    </a>
+                    <a href="https://www.rcrcrystal.com/en/mixology/" style="text-decoration: none">
+                        <img class="sponsorimage" src="./img/sponsors/RCR.jpg" alt="RCR">
+                    </a>
+                    <a href="https://www.scotsman-ice.com/" style="text-decoration: none">
+                        <img class="sponsorimage" src="./img/sponsors/Scotsman.jpg" alt="Scotsman">
+                    </a>
+                    <a href="https://www.spiritshunters.com/it/" style="text-decoration: none">
+                        <img class="sponsorimage" src="./img/sponsors/Spirit-Hunters.jpg" alt="Spirit Hunters">
+                    </a>
+                    <a href="https://www.beamsuntory.com/en" style="text-decoration: none">
+                        <img class="sponsorimage" src="./img/sponsors/SUNTORY.jpg" alt="Suntory">
+                    </a>
+
+                    <!-- 
+
+                    <img class="sponsorimage" src="./img/sponsors/Barmatic2021.jpg">
+                    <img class="sponsorimage" src="./img/sponsors/CAMPARI.jpg">
+                    <img class="sponsorimage" src="./img/sponsors/CMYK2021.jpg">
+                    <img class="sponsorimage" src="./img/sponsors/Fabbri2021.jpg">
+                    <img class="sponsorimage" src="./img/sponsors/Havana-Club.jpg">
+                    <img class="sponsorimage" src="./img/sponsors/Luxardo.jpg">
+                    <img class="sponsorimage" src="./img/sponsors/MATTONI2021.jpg">
+                    <img class="sponsorimage" src="./img/sponsors/MONIN.jpg">
+                    <img class="sponsorimage" src="./img/sponsors/Montenegro.jpg">
+                    <img class="sponsorimage" src="./img/sponsors/Nonino.jpg">
+                    <img class="sponsorimage" src="./img/sponsors/PROSECCO.jpg">
+                    <img class="sponsorimage" src="./img/sponsors/RCR.jpg">
+                    <img class="sponsorimage" src="./img/sponsors/Scotsman.jpg">
+                    <img class="sponsorimage" src="./img/sponsors/Spirit-Hunters.jpg">
+                    <img class="sponsorimage" src="./img/sponsors/SUNTORY.jpg">
+
+                    -->
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- IBA Informations and feedback form -->
+
+        <div class="wrapper">
+            <div style="position: absolute; margin: 5%; padding: 0px; margin-top: 0px; top: 0; left: 0; width: 90%;">
+
+                <!-- info & logo -->
+                <div style="font-family: 'Open Sans',Helvetica,Arial,Lucida,sans-serif; margin-bottom: 200px;">
+                    <img src="./img/logo-iba.png" alt="logo" id="lowerlogo">
+                </div>
+                <div class="normaltext"
+                    style="margin-top: 200px; font-family: 'Open Sans',Helvetica,Arial,Lucida,sans-serif; width: 50%;">
+                    <b>IBA</b>
+                    <br><br>
+                    Registered address:
+                    <br><br>
+                    138 Cecil Street, #06-01 Cecil Court, 069538 Singapore
+                    <br><br>
+                    Registered No. T06SS0054C
+                </div>
+
+                <!-- vertical divider -->
+                <div class="verticalline1"></div>
+
+                <!-- form -->
+                <div
+                    style="position: absolute; top: 0; left: 55%; margin-top: 2%; width: 45%; display: inline-block !important;">
+                    <div class="normaltext">
+                        Send me your feedback!
+                    </div>
+                    <br>
+                    <!-- TODO: FIX THIS SO THAT IT ACTUALLY WORKS, MAYBE APPEND MESSAGE IN A LOG FILE ON SERVER-SIDE MACHINE? -->
+
+                    <!--
+                    <form onsubmit="formfeedback(); return false;" name="feedback" enctype="text/plain" method="post"
+                        style="margin-top: 50px;">
+                        <p class="normaltext">
+                            <input class="form-control me-2" type="text" name="name" placeholder="Name">
+                        </p>
+                        <p class="normaltext">
+                            <input class="form-control me-2" type="text" name="mail" placeholder="Mail">
+                        </p>
+                        <p class="normaltext">
+                            <textarea class="form-control me-2" rows="5" name="message"
+                                placeholder="Message" autocomplete="off"></textarea>
+                        </p>
+                        <p class="normaltext">
+                        <p>Are you a robot? Type the result of the addition: </p>
+                        <p id="captchanumbers"></p>
+                        <!-- document.getElementById("captchanumbers").innerHTML = "numerigenerati";
+                            -->
+                    <!--
+                        <input class="form-control me-2" type="text" name="captcharesponse" placeholder="Result"
+                            width="30%" autocomplete="off">
+                        </p>
+                        <p class="normaltext">
+                            <button color="white" background-color="black" class="btn  btn-outline-light" type="submit" btn-primary>Submit</button>
+                        </p>
+                    </form>
+                    -->
+                    <p class="normaltext">
+                        <input class="form-control me-2" type="text" name="name" placeholder="Name"
+                            id="formfeedbackname" autocomplete="off">
+                    </p>
+                    <p class="normaltext">
+                        <input class="form-control me-2" type="text" name="mail" placeholder="Mail"
+                            id="formfeedbackmail" autocomplete="off">
+                    </p>
+                    <p class="normaltext">
+                        <textarea class="form-control me-2" rows="5" name="message" placeholder="Message"
+                            autocomplete="off" id="formfeedbackmessage"></textarea>
+                    </p>
+                    <p class="normaltext">
+                    <p>Are you a robot? Type the result of the addition: </p>
+                    <p id="captchanumbers"></p>
+                    <input class="form-control me-2" type="text" name="captcharesponse" placeholder="Result" width="30%"
+                        autocomplete="off" id="formfeedbackcaptcharesponse">
+                    </p>
+                    <p class="normaltext">
+                        <button color="white" background-color="black" class="btn  btn-outline-light" type="submit"
+                            btn-primary onclick="formfeedback()">Submit</button>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer"
+        style="font-size: 11px; font-family: 'Open Sans', Helvetica, Arial, Lucida, sans-serif; margin-top: 600px;">
+        <b>No copyright infringement intended, this is a project created for academic purposes.
+            <br>
+            Created by Simone Gioè for the Web Languages and Technologies course from the University of studies of
+            Milan.</b>
+    </footer>
+
+    <script>
+        addCaptchaToText();
+    </script>
+</body>
+
+</html>

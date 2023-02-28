@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>International Bartender Association</title>
+
+    <script src="../js/iba.js"></script>
+    <link rel="stylesheet" href="../css/iba.css">
+
+    <!-- bootstrap's script and stylesheet -->
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="../img/favicon.ico?v=1.1">
+
+    <!-- captcha generator -->
+    <script src="../js/mycaptcha.js"></script>
+
+    <!-- db scripts -->
+    <script src="../js/psql.js"></script>
+    <script src="../js/cocktails.js"></script>
+
+    <!-- form scripts -->
+    <script src="../js/forms.js"></script>
+
+    <!-- age verification -->
+    <script src="../js/ageverification.js"></script>
+
+</head>
+
+<body>
+
+    <header>
+        <div>
+            <nav class="navbar navbar-expand-md navbar-expand-sm navbar-dark fixed-top bg-dark">
+                <div class="container-fluid">
+                    <a href="../iba.html" style="text-decoration: none">
+                        <img src="../img/logo-iba.png" alt="logo" style="width: 55px; height: 55px;">
+                    </a>
+                    <!--
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    -->
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="../iba">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="../aboutiba">About IBA</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="../cocktailsinfo">Cocktails</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="../academy">Academy</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="../supporters">Supporters</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../aboutme">About Me & The Project</a>
+                            </li>
+                        </ul>
+
+                        <!--
+                        <form class="d-flex">
+                            <input class="form-control me-2" type="search" placeholder="Search cocktail" aria-label="Search">
+                            <button color="white" background-color="black" class="btn  btn-outline-light" type="submit" btn-primary>Search</button>
+                        </form>
+                        -->
+
+                        <img src="../img/red-box.png" alt="redbox" style="float: right; width: 55px; height: 55px;">
+
+                        <!-- dropdown + collapse? -->
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Age verification -->
+
+    <script>
+        firsttimevisitingvalue = localStorage.getItem("firsttimevisiting");
+        console.log()
+        if (firsttimevisitingvalue == null || firsttimevisitingvalue == "true") {
+            console.log("firsttimevisiting. Creating the ageverificationpopup.");
+            displayAgeVerification();
+            disableScroll();
+            blurBackground();
+        } 
+    </script>
+
+    <div id="ageverificationpopup" style="text-align: center;">
+        <img src="../img/logo-iba.png" alt="logoiba" style="max-width: 100%;">
+        <p style="color: black; font-size: 30px;">Welcome to IBA</p>
+        <hr style="color: black; height: 2px;">
+        <p style="color: rgb(94, 94, 94); font-size: 15px;">Are you of legal age for drinking?</p>
+        <button id="buttonleft" onclick="window.location.reload(); changefirsttimevisitingvalue();">YES</button>
+        <button id="buttonright" onclick="window.location.href='./comeback.html'">NO</button>
+    </div>
+
+    <main id="main" style="margin-top: -50px;">
+
+        <!-- COCKTAIL INFO HERE -->
+
+        <div class="wrapper">
+            <div id="cocktailinfoimageholder">
+                <img id="cocktailinfoimage" src="../img/cocktails/IBA-TU-32-Whiskey-Sour.jpg">
+                <!-- <img id="cocktailinfoimage" src="./img/white.png"> -->
+                <img id="cocktailshadeimage" src="../img/shade.png">
+                <div id="cocktailinfodetails">
+                    <div class="">
+                        <p class="cbigtext" style="text-decoration: none;">Whiskey Sour</p>
+                        <p class="cnormaltext" style="font-weight: 600;">IBA COCKTAIL, The Unforgettables</p>
+                        <br>
+                        <p class="cbigtext">INGREDIENTS:</p>
+                        <p class="cnormaltext">45 ml Bourbon Whiskey<br>25 ml Fresh Lemon Juice<br>20 ml Sugar Syrup<br>20 ml Egg White (Optional)<br></p>
+                        <br>
+                        <p class="cbigtext">METHOD:</p>
+                        <p class="cnormaltext">Pour all ingredients into a cocktail shaker filled with ice. Shake well. Strain into cobbler glass. If served "On the rocks", strain ingredients into an old fashioned glass filled with ice.</p>
+                        <br>
+                        <p class="cbigtext">GARNISH:</p>
+                        <p class="cnormaltext">Garnish with a half orange slice and maraschino cherry, optionally use orange zest.</p>
+                        <br>
+                        <p class="cbigtext">HISTORY:</p>
+                        <p class="cnormaltext">N/A</p>
+                        <br>
+                        <p class="cbigtext">NOTE:</p>
+                        <p class="cnormaltext">If egg white is used shake little harder to release and incorporate the foam from the egg white.</p>
+                        <br>
+                        <p class="cbigtext">OFFICIAL LINK:</p>
+                        <p class="cnormaltext"><a class="customlink" href="https://iba-world.com/whiskey-sour/">To the official "Whiskey Sour"
+                                page</a>
+                        </p>
+                        <br>
+                    </div>
+                </div>
+            </div>
+
+            <div style="position: absolute; margin-top: 160vh;">
+
+                <!-- Sponsors -->
+
+                <div class="wrapper">
+                    <div class="text-container" style="overflow: hidden; margin-top: 50px;">
+                        <div class="bigtext" style="text-align: center;">
+                            IBA's Supporters
+                        </div>
+                        <div class="imageholder">
+                            <a href="https://barmatic.ch/" style="text-decoration: none">
+                                <img class="sponsorimage" src="../img/sponsors/Barmatic2021.jpg" alt="Barmatic2021">
+                            </a>
+                            <a href="https://www.campari.com/" style="text-decoration: none">
+                                <img class="sponsorimage" src="../img/sponsors/CAMPARI.jpg" alt="Campari">
+                            </a>
+                            <a href="https://www.cmykingredients.com/" style="text-decoration: none">
+                                <img class="sponsorimage" src="../img/sponsors/CMYK2021.jpg" alt="cmyk ingredients">
+                            </a>
+                            <a href="https://en.fabbri1905.com/" style="text-decoration: none">
+                                <img class="sponsorimage" src="../img/sponsors/Fabbri2021.jpg" alt="Fabbri">
+                            </a>
+                            <a href="https://havana-club.com/en/" style="text-decoration: none">
+                                <img class="sponsorimage" src="../img/sponsors/Havana-Club.jpg" alt="Havana Club">
+                            </a>
+                            <a href="https://www.luxardo.it/" style="text-decoration: none">
+                                <img class="sponsorimage" src="../img/sponsors/Luxardo.jpg" alt="Luxardo">
+                            </a>
+                            <a href="https://www.mattoni.cz/" style="text-decoration: none">
+                                <img class="sponsorimage" src="../img/sponsors/MATTONI2021.jpg" alt="Mattoni">
+                            </a>
+                            <a href="https://www.monin.com/emea/" style="text-decoration: none">
+                                <img class="sponsorimage" src="../img/sponsors/MONIN.jpg" alt="Monin">
+                            </a>
+                            <a href="https://www.montenegro.it/" style="text-decoration: none">
+                                <img class="sponsorimage" src="../img/sponsors/Montenegro.jpg" alt="Montenegro">
+                            </a>
+                            <a href="https://www.grappanonino.it/en/" style="text-decoration: none">
+                                <img class="sponsorimage" src="../img/sponsors/Nonino.jpg" alt="Nonino">
+                            </a>
+                            <a href="https://www.prosecco.wine/en" style="text-decoration: none">
+                                <img class="sponsorimage" src="../img/sponsors/PROSECCO.jpg" alt="Prosecco">
+                            </a>
+                            <a href="https://www.rcrcrystal.com/en/mixology/" style="text-decoration: none">
+                                <img class="sponsorimage" src="../img/sponsors/RCR.jpg" alt="RCR">
+                            </a>
+                            <a href="https://www.scotsman-ice.com/" style="text-decoration: none">
+                                <img class="sponsorimage" src="../img/sponsors/Scotsman.jpg" alt="Scotsman">
+                            </a>
+                            <a href="https://www.spiritshunters.com/it/" style="text-decoration: none">
+                                <img class="sponsorimage" src="../img/sponsors/Spirit-Hunters.jpg" alt="Spirit Hunters">
+                            </a>
+                            <a href="https://www.beamsuntory.com/en" style="text-decoration: none">
+                                <img class="sponsorimage" src="../img/sponsors/SUNTORY.jpg" alt="Suntory">
+                            </a>
+
+                            <!-- 
+
+                    <img class="sponsorimage" src="./img/sponsors/Barmatic2021.jpg">
+                    <img class="sponsorimage" src="./img/sponsors/CAMPARI.jpg">
+                    <img class="sponsorimage" src="./img/sponsors/CMYK2021.jpg">
+                    <img class="sponsorimage" src="./img/sponsors/Fabbri2021.jpg">
+                    <img class="sponsorimage" src="./img/sponsors/Havana-Club.jpg">
+                    <img class="sponsorimage" src="./img/sponsors/Luxardo.jpg">
+                    <img class="sponsorimage" src="./img/sponsors/MATTONI2021.jpg">
+                    <img class="sponsorimage" src="./img/sponsors/MONIN.jpg">
+                    <img class="sponsorimage" src="./img/sponsors/Montenegro.jpg">
+                    <img class="sponsorimage" src="./img/sponsors/Nonino.jpg">
+                    <img class="sponsorimage" src="./img/sponsors/PROSECCO.jpg">
+                    <img class="sponsorimage" src="./img/sponsors/RCR.jpg">
+                    <img class="sponsorimage" src="./img/sponsors/Scotsman.jpg">
+                    <img class="sponsorimage" src="./img/sponsors/Spirit-Hunters.jpg">
+                    <img class="sponsorimage" src="./img/sponsors/SUNTORY.jpg">
+
+                    -->
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IBA Informations and feedback form -->
+
+                <div class="wrapper">
+                    <div
+                        style="position: absolute; margin: 5%; padding: 0px; margin-top: 0px; top: 0; left: 0; width: 90%;">
+
+                        <!-- info & logo -->
+                        <div style="font-family: 'Open Sans',Helvetica,Arial,Lucida,sans-serif; margin-bottom: 200px;">
+                            <img src="../img/logo-iba.png" alt="logo" id="lowerlogo">
+                        </div>
+                        <div class="normaltext"
+                            style="margin-top: 200px; font-family: 'Open Sans',Helvetica,Arial,Lucida,sans-serif; width: 50%;">
+                            <b>IBA</b>
+                            <br><br>
+                            Registered address:
+                            <br><br>
+                            138 Cecil Street, #06-01 Cecil Court, 069538 Singapore
+                            <br><br>
+                            Registered No. T06SS0054C
+                        </div>
+
+                        <!-- vertical divider -->
+                        <div class="verticalline1"></div>
+
+                        <!-- form -->
+                        <div
+                            style="position: absolute; top: 0; left: 55%; margin-top: 2%; width: 45%; display: inline-block !important;">
+                            <div class="normaltext">
+                                Send me your feedback!
+                            </div>
+                            <br>
+                            <!-- TODO: FIX THIS SO THAT IT ACTUALLY WORKS, MAYBE APPEND MESSAGE IN A LOG FILE ON SERVER-SIDE MACHINE? -->
+
+                            <!--
+                    <form onsubmit="formfeedback(); return false;" name="feedback" enctype="text/plain" method="post"
+                        style="margin-top: 50px;">
+                        <p class="normaltext">
+                            <input class="form-control me-2" type="text" name="name" placeholder="Name">
+                        </p>
+                        <p class="normaltext">
+                            <input class="form-control me-2" type="text" name="mail" placeholder="Mail">
+                        </p>
+                        <p class="normaltext">
+                            <textarea class="form-control me-2" rows="5" name="message"
+                                placeholder="Message" autocomplete="off"></textarea>
+                        </p>
+                        <p class="normaltext">
+                        <p>Are you a robot? Type the result of the addition: </p>
+                        <p id="captchanumbers"></p>
+                        <!-- document.getElementById("captchanumbers").innerHTML = "numerigenerati";
+                            -->
+                            <!--
+                        <input class="form-control me-2" type="text" name="captcharesponse" placeholder="Result"
+                            width="30%" autocomplete="off">
+                        </p>
+                        <p class="normaltext">
+                            <button color="white" background-color="black" class="btn  btn-outline-light" type="submit" btn-primary>Submit</button>
+                        </p>
+                    </form>
+                    -->
+                            <p class="normaltext">
+                                <input class="form-control me-2" type="text" name="name" placeholder="Name"
+                                    id="formfeedbackname" autocomplete="off">
+                            </p>
+                            <p class="normaltext">
+                                <input class="form-control me-2" type="text" name="mail" placeholder="Mail"
+                                    id="formfeedbackmail" autocomplete="off">
+                            </p>
+                            <p class="normaltext">
+                                <textarea class="form-control me-2" rows="5" name="message" placeholder="Message"
+                                    autocomplete="off" id="formfeedbackmessage"></textarea>
+                            </p>
+                            <p class="normaltext">
+                            <p>Are you a robot? Type the result of the addition: </p>
+                            <p id="captchanumbers"></p>
+                            <input class="form-control me-2" type="text" name="captcharesponse" placeholder="Result"
+                                width="30%" autocomplete="off" id="formfeedbackcaptcharesponse">
+                            </p>
+                            <p class="normaltext">
+                                <button color="white" background-color="black" class="btn  btn-outline-light"
+                                    type="submit" btn-primary onclick="formfeedback()">Submit</button>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer"
+        style="font-size: 11px; font-family: 'Open Sans', Helvetica, Arial, Lucida, sans-serif; margin-top: 165%; margin-bottom: 0;">
+        <b>No copyright infringement intended, this is a project created for academic purposes.
+            <br>
+            Created by Simone Gioè for the Web Languages and Technologies course from the University of studies of
+            Milan.</b>
+    </footer>
+
+    <script>
+        addCaptchaToText();
+        createObjects();
+
+        window.addEventListener("resize", fixfooter(), true);
+        document.addEventListener("DOMContentLoaded", fixfooter());
+
+        function fixfooter() {
+
+            const offset = -50;
+            var body = document.body, html = document.documentElement;
+
+            var height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+
+            document.getElementsByClassName("footer")[0].style.marginTop = height + offset + "px";
+            //console.log(document.getElementsByClassName("footer")[0].style.marginTop);
+            //console.log("Resized, new height = " + height);
+        }
+
+        /*
+        var height = document.body.scrollHeight;
+        document.getElementsByClassName("footer").style.marginTop = height;
+        */
+    </script>
+</body>
+
+</html>

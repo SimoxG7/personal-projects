@@ -1,0 +1,40 @@
+dropdown e collapse bootstrap (insieme)
+navigation bar https://www.w3schools.com/bootstrap4/bootstrap_navbar.asp
+https://getbootstrap.com/docs/5.1/examples/carousel/
+fixare boxshadow in css
+https://www.w3schools.com/cssref/css3_pr_mediaquery.asp
+https://www.w3schools.com/css/css3_buttons.asp
+https://www.w3docs.com/snippets/html/how-to-create-an-html-button-that-acts-like-a-link.html
+https://www.w3schools.com/howto/howto_css_searchbar.asp
+aggiungere effetti hover sui pulsanti di read more
+https://codepen.io/amirnaeem/pen/GZmXwr age verification https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp
+
+https://codeforgeek.com/render-html-file-expressjs/
+https://www.tutorialspoint.com/nodejs/nodejs_express_framework.htm
+
+https://kb.objectrocket.com/postgresql/nodejs-and-postgresql-query-example-955
+https://cheatcode.co/tutorials/how-to-use-postgresql-with-node-js#getting-started
+https://stackabuse.com/using-postgresql-with-nodejs-and-node-postgres/
+
+https://node-postgres.com/features/queries
+
+https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/forms
+
+https://medium.com/swlh/read-html-form-data-using-get-and-post-method-in-node-js-8d2c7880adbf
+
+https://www.tutorialrepublic.com/faq/how-to-get-the-current-url-with-javascript.php
+
+
+
+
+todo:
+captchaddd
+
+
+
+
+
+
+
+
+
