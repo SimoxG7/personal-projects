@@ -7,7 +7,7 @@ In order for this to work properly, a Postgres database needs to be set up by us
 <br>
 The database has been created with the idea of using an Entity-Relationship model. This is a graphical representation of this database's ER model:
 <br><br>
-![Alt text](https://github.com/SimoxG7/personal-projects/blob/main/IBA%20Website/schemaeriba.png "ER Model")
+![Alt text](https://github.com/SimoxG7/personal-projects/blob/main/IBA%20Website/useful/schemaeriba.png "ER Model")
 <br><br>
 Once the database is set up, it's only needed to run the server.js file through Node and the server is set, at the specified port in the .env file. 
 <br>
