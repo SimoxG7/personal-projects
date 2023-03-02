@@ -7,3 +7,7 @@ The program also measures the execution time and the amount of recursive calls t
 <br>
 The Sudoku table is currently hard-coded, but the program can be modified quite easily so that the Sudoku table can be read from a file. The size of the table is also hard-coded and parametirized. In the commented code there are a 25x25 Sudoku table (takes more than 3-4 hours to solve) and a 9x9 classic Sudoku Table (takes less then a second to solve), while the uncommented table is 16x16. 
 <br>
+Here is an example of the execution with the 16x16 hard-coded table:
+<br><br>
+<img src="https://github.com/SimoxG7/personal-projects/blob/main/Sudoku%20Solver%20in%20C/examplesudoku.png" alt="examplesudoku">
+<br>
