@@ -1,5 +1,6 @@
 package myproject.opensourcecocktails.service;
 
+import myproject.opensourcecocktails.model.CompleteCocktail;
 import myproject.opensourcecocktails.model.Ingredient;
 import myproject.opensourcecocktails.repository.IngredientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +47,11 @@ public class IngredientService {
 
   public void deleteIngredient(Ingredient ingredient) {
     ingredientRepository.delete(ingredient);
+  }
+
+  public List<Ingredient> getIngredientByName(String name) {
+    return getAllIngredients().stream().filter(c ->
+        (c.getName().trim().toLowerCase().contains(name.trim().toLowerCase()))).toList();
   }
 
 }

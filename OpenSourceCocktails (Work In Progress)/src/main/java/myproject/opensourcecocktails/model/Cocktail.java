@@ -36,6 +36,7 @@ public class Cocktail {
         .append("\nMethod: ").append(method)
         .append("\nGarnish: ").append(garnish)
         .append("\nHistory: ").append(history)
+        .append("\nNote: ").append(note)
         .append("\nSimoxrate: ").append(simoxrate)
         .append("\nImageurl: ").append(imageurl).append("\n\n");
     return sb.toString();

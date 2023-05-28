@@ -1,6 +1,7 @@
 package myproject.opensourcecocktails.service;
 
 import myproject.opensourcecocktails.model.Cocktail;
+import myproject.opensourcecocktails.model.CompleteCocktail;
 import myproject.opensourcecocktails.repository.CocktailRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,5 +42,10 @@ public class CocktailService {
 
   public void deleteCocktail(Cocktail cocktail) {
     cocktailRepository.delete(cocktail);
+  }
+
+  public List<Cocktail> getCocktailByName(String name) {
+    return getAllCocktails().stream().filter(c ->
+        (c.getName().trim().toLowerCase().contains(name.trim().toLowerCase()))).toList();
   }
 }

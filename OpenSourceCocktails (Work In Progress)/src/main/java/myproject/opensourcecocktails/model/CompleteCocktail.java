@@ -40,6 +40,7 @@ public class CompleteCocktail {
         .append("\nMethod: ").append(method)
         .append("\nGarnish: ").append(garnish)
         .append("\nHistory: ").append(history)
+        .append("\nNote: ").append(note)
         .append("\nSimoxrate: ").append(simoxrate)
         .append("\nImageurl: ").append(imageurl)
         .append("\nIngredients and quantities: ").append(ingredientsAndQuantities).append("\n\n");
