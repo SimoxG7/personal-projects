@@ -2,22 +2,17 @@ package myproject.opensourcecocktails;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
-import myproject.opensourcecocktails.controller.CIRelationController;
-import myproject.opensourcecocktails.controller.CocktailController;
-import myproject.opensourcecocktails.controller.CompleteCocktailController;
-import myproject.opensourcecocktails.controller.IngredientController;
+import myproject.opensourcecocktails.container.Container;
 import myproject.opensourcecocktails.model.CIRelation;
 import myproject.opensourcecocktails.model.Cocktail;
-import myproject.opensourcecocktails.container.Container;
 import myproject.opensourcecocktails.model.CompleteCocktail;
 import myproject.opensourcecocktails.model.Ingredient;
-import myproject.opensourcecocktails.service.CIRelationService;
-import myproject.opensourcecocktails.service.CocktailService;
-import myproject.opensourcecocktails.service.CompleteCocktailService;
-import myproject.opensourcecocktails.service.IngredientService;
+import myproject.opensourcecocktails.repository.CIRelationRepository;
+import myproject.opensourcecocktails.repository.CocktailRepository;
+import myproject.opensourcecocktails.repository.CompleteCocktailRepository;
+import myproject.opensourcecocktails.repository.IngredientRepository;
+import myproject.opensourcecocktails.formatter.Formatter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -29,37 +24,43 @@ import org.springframework.core.io.ResourceLoader;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
-
 import java.io.File;
-import java.io.Writer;
+import java.util.Optional;
+import java.util.stream.StreamSupport;
+
 
 @SpringBootApplication
 public class TestingApplication {
 
   @Autowired
 //	private IngredientService ingredientService;
-  private IngredientController ingredientController;
+//  private IngredientController ingredientController;
+  private IngredientRepository ingredientRepository;
 
   @Autowired
 //	private CocktailService cocktailService;
-  private CocktailController cocktailController;
+//  private CocktailController cocktailController;
+  private CocktailRepository cocktailRepository;
+
 
   @Autowired
 //	private CIRelationService ciRelationService;
-  private CIRelationController ciRelationController;
+//  private CIRelationController ciRelationController;
+  private CIRelationRepository ciRelationRepository;
+
 
   @Autowired
 //	private CompleteCocktailService completeCocktailService;
-  private CompleteCocktailController completeCocktailController;
+//  private CompleteCocktailController completeCocktailController;
+  private CompleteCocktailRepository completeCocktailRepository;
+
 
   @Autowired
   private ResourceLoader resourceLoader;
 
   @Autowired
   private ApplicationContext applicationContext;
-
 
   public static void main(String[] args) {
     SpringApplication.run(TestingApplication.class, args);
@@ -68,18 +69,28 @@ public class TestingApplication {
   @Bean
   public CommandLineRunner runner() {
     return (args) -> {
-      ObjectMapper objectMapper = applicationContext.getBean(ObjectMapper.class);
-      for (CompleteCocktail completeCocktail : completeCocktailController.getAllCompleteCocktails()) {
-        System.out.println(completeCocktail);
-      }
-
-      System.out.println(completeCocktailController.getCompleteCocktailByName("dry martini"));
-      System.out.println(completeCocktailController.getCompleteCocktailByName("martini"));
-
+//      ObjectMapper objectMapper = applicationContext.getBean(ObjectMapper.class);
+      System.out.println("SERVICE READY");
+//      generateCSVsFromJSONs();
+//      generateJSONsFromCSVs();
 //      smalltest();
     };
   }
 
+
+  public void generateCSVsFromJSONs() {
+    Formatter.JSONtoCSV("completecocktail_nc.json", "completecocktail.csv");
+    Formatter.JSONtoCSV("cocktail_nc.json", "cocktail.csv");
+    Formatter.JSONtoCSV("ingredient_nc.json", "ingredient.csv");
+    Formatter.JSONtoCSV("ci_relation_nc.json", "ci_relation.csv");
+  }
+
+  public void generateJSONsFromCSVs() {
+    Formatter.CSVtoJSON("completecocktail.csv", "completecocktail_t.json");
+    Formatter.CSVtoJSON("cocktail.csv", "cocktail_t.json");
+    Formatter.CSVtoJSON("ingredient.csv", "ingredient_t.json");
+    Formatter.CSVtoJSON("ci_relation.csv", "ci_relation_t.json");
+  }
 
   public void smalltest() throws JsonProcessingException {
 
@@ -93,31 +104,37 @@ public class TestingApplication {
 
     //TEST POST
     //objectMapper.writeValueAsString(cocktailController.getCocktailById(10));
-    Cocktail totest1 = cocktailController.getCocktailById(1);
-    totest1.setId(123);
-    String tt1 = objectMapper.writeValueAsString(totest1);
-    //System.out.println(objectMapper.writeValueAsString(cocktailController.getCocktailById(12)));
-    request = new HttpEntity<>(tt1, headers);
-    restTemplate.postForEntity("http://localhost:8080/cocktail", request, String.class);
-    System.out.println("\n\nNEW COCKTAIL SHOULD BE ADDED WITH ID 123");
-    System.out.println(cocktailController.getCocktailById(123));
+    Optional<Cocktail> totest1 = cocktailRepository.findById(1);
+    if (totest1.isPresent()) {
+      String tt1 = objectMapper.writeValueAsString(totest1.get());
+      //System.out.println(objectMapper.writeValueAsString(cocktailController.getCocktailById(12)));
+      request = new HttpEntity<>(tt1, headers);
+      restTemplate.postForEntity("http://localhost:8080/cocktail", request, String.class);
+      System.out.println("\n\nNEW COCKTAIL SHOULD BE ADDED WITH ID 123");
+      System.out.println(cocktailRepository.findById(123));
+    }
 
     //TEST PUT
-    Cocktail totest2 = cocktailController.getCocktailById(90);
-    totest2.setName("really bad cocktail");
-    String tt2 = objectMapper.writeValueAsString(totest2);
-    request = new HttpEntity<>(tt2, headers);
-    restTemplate.put("http://localhost:8080/cocktail/90", request, String.class);
-    System.out.println("\n\nCOCKTAIL NAME SHOULD BE MODIFIED FROM 'Zombie' to 'really bad cocktail'");
-    System.out.println(cocktailController.getCocktailById(90));
+    Optional<Cocktail> totest2 = cocktailRepository.findById(90);
+    if (totest2.isPresent()) {
+      totest2.get().setName("really bad cocktail");
+      String tt2 = objectMapper.writeValueAsString(totest2);
+      request = new HttpEntity<>(tt2, headers);
+      restTemplate.put("http://localhost:8080/cocktail/90", request, String.class);
+      System.out.println("\n\nCOCKTAIL NAME SHOULD BE MODIFIED FROM 'Zombie' to 'really bad cocktail'");
+      System.out.println(cocktailRepository.findById(90));
+    }
 
     //TEST DELETE
-    Cocktail totest3 = cocktailController.getCocktailById(10);
-    String tt3 = objectMapper.writeValueAsString(totest2);
-    request = new HttpEntity<>(tt3, headers);
-    restTemplate.delete("http://localhost:8080/cocktail/10", request, String.class);
-    System.out.println("\n\nSHOULD BE NULL, CAUSE COCKTAIL SHOULD BE DELETED");
-    System.out.println(cocktailController.getCocktailById(10));
+    Optional<Cocktail> totest3 = cocktailRepository.findById(10);
+    if (totest3.isPresent()) {
+      String tt3 = objectMapper.writeValueAsString(totest3.get());
+      request = new HttpEntity<>(tt3, headers);
+      restTemplate.delete("http://localhost:8080/cocktail/10", request, String.class);
+      System.out.println("\n\nSHOULD BE NULL, CAUSE COCKTAIL SHOULD BE DELETED");
+      System.out.println(cocktailRepository.findById(10));
+    }
+
   }
 
 
@@ -138,7 +155,7 @@ public class TestingApplication {
         if (cocktail.getGarnish().equals("NULL")) cocktail.setGarnish("N/A");
         if (cocktail.getHistory().equals("NULL")) cocktail.setHistory("N/A");
         if (cocktail.getNote().equals("NULL")) cocktail.setNote("N/A");
-        cocktailController.addCocktail(cocktail);
+        cocktailRepository.save(cocktail);
       }
 
       //INGREDIENTS -------------------------------------------------------------------------------
@@ -148,7 +165,7 @@ public class TestingApplication {
       });
 
       for (Ingredient ingredient : ingredientContainer.getContainer()) {
-        ingredientController.addIngredient(ingredient);
+        ingredientRepository.save(ingredient);
       }
 
       //CIRELATIONS -------------------------------------------------------------------------------
@@ -158,36 +175,38 @@ public class TestingApplication {
       });
 
       for (CIRelation ciRelation : ciRelationContainer.getContainer()) {
-        ciRelationController.addCIRelation(ciRelation);
+        ciRelationRepository.save(ciRelation);
       }
 
       //TEST --------------------------------------------------------------------------------------
 
-      for (Cocktail cocktail : cocktailController.getAllCocktails()) {
+      for (Cocktail cocktail : cocktailRepository.findAll()) {
         System.out.println(cocktail);
       }
 
-      for (Ingredient ingredient : ingredientController.getAllIngredients()) {
+      for (Ingredient ingredient : ingredientRepository.findAll()) {
         System.out.println(ingredient);
       }
 
-      for (CIRelation ciRelation : ciRelationController.getAllCIRelations()) {
+      for (CIRelation ciRelation : ciRelationRepository.findAll()) {
         System.out.println(ciRelation);
       }
 
       //CREATE COMPLETECOCKTAIL -------------------------------------------------------------------
 
-      StringBuilder[] ingredientsAndQuantities = new StringBuilder[cocktailController.getAllCocktails().size()];
+      StringBuilder[] ingredientsAndQuantities = new StringBuilder[(int) StreamSupport.stream(cocktailRepository.findAll().spliterator(), false).count()];
 
-      for (CIRelation ingredientAndQuantity : ciRelationController.getAllCIRelations()) {
+      for (CIRelation ingredientAndQuantity : ciRelationRepository.findAll()) {
+        Optional<Ingredient> ingredient = ingredientRepository.findById(ingredientAndQuantity.getI_id());
         if (ingredientsAndQuantities[ingredientAndQuantity.getC_id() - 1] == null) {
-          ingredientsAndQuantities[ingredientAndQuantity.getC_id() - 1] = new StringBuilder(ingredientController.getIngredientById(ingredientAndQuantity.getI_id()).getName() + " - " + ingredientAndQuantity.getI_quantity());
+          ingredient.ifPresent(value -> ingredientsAndQuantities[ingredientAndQuantity.getC_id() - 1] = new StringBuilder(value.getName() + " - " + ingredientAndQuantity.getI_quantity()));
         } else {
-          ingredientsAndQuantities[ingredientAndQuantity.getC_id() - 1].append(", ").append(ingredientController.getIngredientById(ingredientAndQuantity.getI_id()).getName()).append(" - ").append(ingredientAndQuantity.getI_quantity());
+          ingredient.ifPresent(value -> ingredientsAndQuantities[ingredientAndQuantity.getC_id() - 1].append(ingredient.get().getName()).append(" - ").append(ingredientAndQuantity.getI_quantity()));
+//          ingredientsAndQuantities[ingredientAndQuantity.getC_id() - 1].append(", ").append(ingredientRepository.findById(ingredientAndQuantity.getI_id()).getName()).append(" - ").append(ingredientAndQuantity.getI_quantity());
         }
       }
 
-      for (Cocktail cocktail : cocktailController.getAllCocktails()) {
+      for (Cocktail cocktail : cocktailRepository.findAll()) {
         CompleteCocktail completeCocktail = new CompleteCocktail(
             cocktail.getId(),
             cocktail.getName(),
@@ -201,15 +220,15 @@ public class TestingApplication {
             cocktail.getImageurl(),
             ingredientsAndQuantities[cocktail.getId() - 1].toString()
         );
-        completeCocktailController.addCompleteCocktail(completeCocktail);
+        completeCocktailRepository.save(completeCocktail);
       }
 
-      for (CompleteCocktail completeCocktail : completeCocktailController.getAllCompleteCocktails()) {
+      for (CompleteCocktail completeCocktail : completeCocktailRepository.findAll()) {
         System.out.println(completeCocktail);
       }
 
-      System.out.println(completeCocktailController.getCompleteCocktailByName("dry martini"));
-      System.out.println(completeCocktailController.getCompleteCocktailByName("martini"));
+      System.out.println(completeCocktailRepository.findByName("dry martini"));
+      System.out.println(completeCocktailRepository.findByName("martini"));
 
     } catch (Exception e) {
       e.printStackTrace();

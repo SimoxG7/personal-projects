@@ -3,6 +3,9 @@ package myproject.opensourcecocktails.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.IdClass;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,10 +16,18 @@ import lombok.NoArgsConstructor;
 @Entity
 @IdClass(CIRelationPK.class)
 public class CIRelation {
+
   @Id
+  @NotNull
+  @Min(1)
   private Integer c_id;
+
   @Id
+  @NotNull
+  @Min(1)
   private Integer i_id;
+
+  @NotBlank(message = "CIRelation's i_quanity cannot be blank or null")
   private String i_quantity;
 
   @Override

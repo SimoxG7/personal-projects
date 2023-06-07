@@ -27,6 +27,7 @@ public class CompleteCocktailService {
     return result.orElse(null);
   }
 
+  //do query, index sulla colonna di tipo string
   public List<CompleteCocktail> getCompleteCocktailByName(String name) {
     return getAllCompleteCocktails().stream().filter(c ->
         (c.getName().trim().toLowerCase().contains(name.trim().toLowerCase()))).toList();
@@ -37,8 +38,9 @@ public class CompleteCocktailService {
   }
 
   public void updateCompleteCocktail(Integer id, CompleteCocktail completeCocktail) {
-    if (!Objects.equals(id, completeCocktail.getId())) return;
+//    if (!Objects.equals(id, completeCocktail.getId())) return;
     completeCocktailRepository.deleteById(id);
+    completeCocktail.setId(id);
     completeCocktailRepository.save(completeCocktail);
   }
 

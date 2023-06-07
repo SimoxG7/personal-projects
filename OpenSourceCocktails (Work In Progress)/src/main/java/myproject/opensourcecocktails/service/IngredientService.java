@@ -13,7 +13,6 @@ import java.util.Objects;
 import java.util.Optional;
 
 @Service
-@Configurable
 public class IngredientService {
 
   //injected at creation of IngredientService
@@ -36,8 +35,9 @@ public class IngredientService {
   }
 
   public void updateIngredient(Integer id, Ingredient ingredient) {
-    if (!Objects.equals(id, ingredient.getId())) return;
+//    if (!Objects.equals(id, ingredient.getId())) return;
     ingredientRepository.deleteById(id);
+    ingredient.setId(id);
     ingredientRepository.save(ingredient);
   }
 

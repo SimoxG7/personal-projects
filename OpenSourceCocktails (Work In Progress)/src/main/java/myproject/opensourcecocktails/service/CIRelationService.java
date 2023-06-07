@@ -13,7 +13,6 @@ import java.util.Objects;
 import java.util.Optional;
 
 @Service
-@Configurable
 public class CIRelationService {
 
   @Autowired
@@ -36,8 +35,10 @@ public class CIRelationService {
 
   public void updateCIRelation(Integer c_id, Integer i_id, CIRelation ciRelation) {
     CIRelationPK pk = new CIRelationPK(c_id, i_id);
-    if (!Objects.equals(pk, new CIRelationPK(ciRelation.getC_id(), ciRelation.getI_id()))) return;
+//    if (!Objects.equals(pk, new CIRelationPK(ciRelation.getC_id(), ciRelation.getI_id()))) return;
     ciRelationRepository.deleteById(pk);
+    ciRelation.setC_id(pk.getC_id());
+    ciRelation.setI_id(pk.getI_id());
     ciRelationRepository.save(ciRelation);
   }
 

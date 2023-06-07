@@ -31,8 +31,9 @@ public class CocktailService {
   }
 
   public void updateCocktail(Integer id, Cocktail cocktail) {
-    if (!id.equals(cocktail.getId())) return;
+//    if (!id.equals(cocktail.getId())) return;
     cocktailRepository.deleteById(id);
+    cocktail.setId(id);
     cocktailRepository.save(cocktail);
   }
 
