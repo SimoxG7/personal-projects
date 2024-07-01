@@ -11,3 +11,4 @@ It currently contains the following projects:
 - Chess engine with GUI.
 - Better IBA Website implementation.
 - Fair Tetris: a Tetris implementation with fair block sequences.
+- pwn.college private solutions repository.
