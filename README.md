@@ -12,3 +12,4 @@ It currently contains the following projects:
 - Better IBA Website implementation.
 - Fair Tetris: a Tetris implementation with fair block sequences.
 - pwn.college private solutions repository.
+- Image pixelizer website.
