@@ -13,3 +13,4 @@ It currently contains the following projects:
 - Fair Tetris: a Tetris implementation with fair block sequences.
 - pwn.college private solutions repository.
 - Image pixelizer website.
+- CTF / Treasure Hunt: find flags hidden in the website's pages with scripting, reverse engineering and more.
