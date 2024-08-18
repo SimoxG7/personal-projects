@@ -14,5 +14,6 @@ It currently contains the following projects:
 - pwn.college private solutions repository.
 - Image pixelizer website.
 - CTF / Treasure Hunt: find flags hidden in the website's pages with scripting, reverse engineering, steganography, cryptograhy, cross-site-scriping and more.
-- hex-color picker from a given image.
-- devutilools - a collection of utility functions for developers such as: SHA256 online, AES online, DES online, Base64 online, string to binary, number to binary, string to hex, number to hex, character counter, hex-color picker, password generator, IEEE-754 converter. 
+- Hex-Color Picker (also from a given image).
+- DevUtilTools - a collection of utility functions for developers such as: SHA256 online, AES online, DES online, Base64 online, string to binary, number to binary, string to hex, number to hex, character counter, hex-color picker, password generator, IEEE-754 converter. 
+- Morse code translator.
